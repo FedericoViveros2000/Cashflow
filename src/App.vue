@@ -1,30 +1,28 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <div class="flex justify-center items-center py-5">
+      <figure class="w-8 h-8 mr-10">
+        <img
+          src="@/assets/cashflow-icon.svg"
+          alt="Icono de la aplicacion"
+          class="object-cover"
+        />
+      </figure>
+      <h1 class="title-cashflow font-bold text-xl">
+        <span class="text-green-color">Cash</span>flow
+      </h1>
+    </div>
+
+    <Suspense>
+      <cash-flow-home></cash-flow-home>
+      <template #fallback>
+        <loader-screen></loader-screen>
+      </template>
+    </Suspense>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script setup>
+import CashFlowHome from "@/views/CashFlowHome.vue";
+import LoaderScreen from "@/components/SplashScreen.vue";
+</script>
