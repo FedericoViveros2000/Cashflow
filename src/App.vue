@@ -17,7 +17,15 @@
     <Suspense>
       <cash-flow-home></cash-flow-home>
       <template #fallback>
-        <loader-screen></loader-screen>
+        <Transition
+          enter-from-class="transition-opacity opacity-100 duration-300 ease-linear"
+          leave-to-class="transition-opacity opacity-0 duration-500 ease-linear"
+        >
+          <loader-screen
+            class="transition duration-300 ease-linear"
+            v-if="mostrar"
+          ></loader-screen>
+        </Transition>
       </template>
     </Suspense>
   </div>

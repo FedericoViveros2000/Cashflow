@@ -1,24 +1,20 @@
 <template>
-  <div
-    class="w-full bg-slate-500 h-3/4 overflow-y-auto py-10"
-    :class="{ '-translate-y-3/4': show === true }"
-  >
-    <p @click="mostrar">{{ show }}</p>
-    <div class="mb-10">
-      <p class="py-10 bg-red-900 rounded-lg p-5 my-5">Metricas</p>
-      <p class="py-10 bg-red-900 rounded-lg p-5 my-5">Metricas</p>
-      <p class="py-10 bg-red-900 rounded-lg p-5 my-5">Metricas</p>
-      <p class="py-10 bg-red-900 rounded-lg p-5 my-5">Metricas</p>
-      <p class="py-10 bg-red-900 rounded-lg p-5 my-5">Metricas</p>
+  <section class="p-5 h-3/4 bg-white shadow-2xl shadow-black">
+    <div class="w-full flex flex-col py-5">
+      <div
+        class="w-4/12 self-center bg-slate-500 rounded-full py-1 px-2"
+        @click="showMetrics"
+      ></div>
+      <p class="text-2xl text-blue-color font-bold">Historial</p>
     </div>
-  </div>
+    <slot></slot>
+  </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
-const show = ref(false);
-
-const mostrar = () => {
-  console.log(!show.value);
+import { defineEmits } from "vue";
+const emit = defineEmits(["showMetrics"]);
+const showMetrics = () => {
+  emit("showMetrics");
 };
 </script>
