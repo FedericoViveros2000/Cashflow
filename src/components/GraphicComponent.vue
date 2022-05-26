@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex flex-col justify-between items-center h-4/5 leading-10 p-5 text-lg outline-none"
+    class="w-full flex flex-col justify-between items-center leading-10 p-5 text-lg outline-none"
   >
     <section class="text-center">
       <p class="text-xl my-4">Ahorro total</p>
